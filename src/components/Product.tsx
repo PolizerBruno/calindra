@@ -7,7 +7,6 @@ function Product(props: any) {
   useEffect(() => {
     setValue(Number((Math.random() * 10000).toFixed(2)));
   }, []);
-  console.log(props);
   return (
     <div className="App-product">
       <img src={product} width="160px" height="160px" />

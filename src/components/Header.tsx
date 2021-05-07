@@ -34,7 +34,6 @@ function Header(props: any) {
           }
         })
         .catch((error) => {
-          console.log(error);
           props.setError([error, "warning", "Erro na pesquisa"]);
         });
     } else {
