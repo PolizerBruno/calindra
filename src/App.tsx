@@ -63,7 +63,7 @@ function App() {
                     />
                   );
                 })}
-                <p>
+                <p className="frete">
                   O frete grátis está sujeito ao peso, preço e distância do
                   envio.
                 </p>
