@@ -16,7 +16,8 @@
   text-align: left;
   border: 0px;
   background-color: transparent;
-  cursor: pointer
+  cursor: pointer;
+  max-width: 600px;
 }
 
 .product-price {
@@ -25,8 +26,9 @@
   font-weight: 400;
   margin: 2px;
 }
-.frete{
-  margin:5px;
+
+.frete {
+  margin: 5px;
 }
 
 .product-installments {
@@ -36,8 +38,8 @@
 }
 
 .App-Suggestion {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 320px;
+  max-width: 320px;
   text-align: left;
 }
 
@@ -55,11 +57,12 @@
 }
 
 .App-product {
+  margin: 10px;
   padding: 10px;
-  border-bottom: 0.5px solid rgba(200, 200, 200, 0.75);
   display: flex;
   flex-direction: column;
-  max-width: 100vw;
+  max-width: 720px;
+  border-bottom: 0.5px solid black;
 }
 
 .App-Detail {
@@ -67,7 +70,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 1200px;
+  max-width: 100%;
 }
 
 .btn-success {
@@ -105,7 +108,7 @@
   justify-content: flex-start;
   flex-direction: column;
   margin-left: 10px;
-
+  max-width: 700px;
 }
 
 .body {
@@ -123,11 +126,10 @@
 }
 
 .product-list {
-  display: flex;
-  flex-direction: column;
   background-color: rgba(250, 250, 250, 0.95);
   margin: 20px;
   border-radius: 5px;
+  max-width: 720px;
 }
 
 .alert-warning {
@@ -196,8 +198,7 @@
   margin: 10px;
   font-weight: 400;
   font-size: 14px;
-  text-align: left;
-  text-transform: capitalize;
+  color: #0f68ee;
 }
 
 .App-button-suggestion-blue {
@@ -209,7 +210,7 @@
   font-size: 14px;
   text-align: left;
   text-transform: capitalize;
-  color: blue;
+  color: #0f68ee;
 }
 
 .App-Suggestion-list {

@@ -1,63 +1,47 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import calindraLogo from "../assets/img/calindra.png";
-import axios from "axios";
+import { request } from "../services/request";
 
 function Header(props: any) {
   const [search, setSearch] = useState(String);
 
   useEffect(() => {
     setSearch(props.searchSuggestion);
-    request(props.searchSuggestion);
+    request(
+      props.searchSuggestion,
+      props.setArrayProdutos,
+      props.setArraySuggestion,
+    );
   }, [props.searchSuggestion]);
-
-  function request(param: any) {
-    if (param) {
-      axios({
-        method: "get",
-        url: `https://mystique-v2-americanas.juno.b2w.io/autocomplete?content=${param}&source=nanook`,
-        responseType: "stream",
-      })
-        .then((response: any) => {
-          if (response.data.products.length === 0) {
-            props.setError([
-              "Desculpe não foi localizar o produto, tente novamente mais tarde.",
-              "warning",
-              "Produto não encontrado!",
-            ]);
-          } else {
-            props.setArrayProdutos(response.data.products);
-            props.setArraySuggestion(response.data.suggestions);
-            props.setQueryName(param);
-          }
-        })
-        .catch((error) => {
-          props.setError([error, "warning", "Erro na pesquisa"]);
-        });
-    } else {
-    }
-  }
 
   return (
     <div className="App-header">
       <div className="App-form-search">
         <div className="Input-icon">
-          <a href="">
+          <a href="/">
             <img
               src={calindraLogo}
               alt="Calindra Inc. logo"
-              width="60px"
-              height="40px"
-              style={{ cursor: "pointer" }}
+              width="60"
+              height="40"
             />
           </a>
 
           <input
             onKeyPress={(key) => {
               if (key.code === "Enter") {
-                request(search);
+                request(
+                  search,
+                  props.setArrayProdutos,
+                  props.setArraySuggestion
+                )?.then((res) => {
+                  if (res) {
+                    props.setError(res);
+                  }
+                });
               }
             }}
             type="text"
@@ -73,7 +57,11 @@ function Header(props: any) {
               icon={faSearch}
               className="icon"
               onClick={() => {
-                request(search);
+                request(
+                  search,
+                  props.setArrayProdutos,
+                  props.setArraySuggestion
+                )?.then((res) => props.setError(res));
               }}
             />
           </button>

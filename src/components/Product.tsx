@@ -8,8 +8,8 @@ function Product(props: any) {
     setValue(Number((Math.random() * 10000).toFixed(2)));
   }, []);
   return (
-    <div className="App-product">
-      <img src={product} width="160px" height="160px" />
+    <div className="App-product" key={props}>
+      <img src={product} alt={'Produto'} width="160px" height="160px" />
       <div className="product-description">
         <button className="product-name" onClick={()=>{props.setShowDetailProduct(true);props.setCurrentProduct({'name' : props.product.name,'value':value})}}>{props.product.name}</button>
         <p className="product-price">R${value}</p>

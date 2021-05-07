@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Error from "./components/Error";
 import Product from "./components/Product";
 import Suggestion from "./components/Suggestion";
@@ -55,13 +55,15 @@ function App() {
             )}
             {arrayProdutos.length > 0 ? (
               <div className="product-list">
-                {arrayProdutos.map((p) => {
+                {arrayProdutos.map((p,i) => {
                   return (
-                    <Product
-                      product={p}
-                      setShowDetailProduct={setShowDetailProduct}
-                      setCurrentProduct={setCurrentProduct}
-                    />
+                    <div key={i}>
+                      <Product
+                        product={p}
+                        setShowDetailProduct={setShowDetailProduct}
+                        setCurrentProduct={setCurrentProduct}
+                      />
+                    </div>
                   );
                 })}
               </div>

@@ -1,4 +1,4 @@
-function Error(props : any) {
+function Error(props: any) {
   return (
     <div
       style={{
@@ -9,7 +9,7 @@ function Error(props : any) {
         left: 0,
         bottom: 0,
         marginRight: "auto",
-        backgroundColor: "rgba(0,0,0,0.5)",
+        padding: "10px",
       }}
     >
       <div
@@ -21,24 +21,24 @@ function Error(props : any) {
       >
         <div
           className={`alert-${props.errorCategory} alert-dismissible`}
-          style={{ marginTop: 400, width: "50%" }}
+          style={{ marginTop: 400, width: "60%" }}
         >
-          <button
+          <a
+            href="/"
             style={{
               position: "relative",
               left: "45%",
               fontSize: "16px",
+              padding: "10px",
             }}
-            type="button"
-            className="close"
             data-dismiss="alert"
             aria-hidden="true"
             onClick={() => {
               props.setError([]);
             }}
           >
-            Close
-          </button>
+            X
+          </a>
           <h5>{props.errorTitle}</h5>
           {props.errorMessage}
         </div>
